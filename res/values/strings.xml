@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name"><b><i>Marine App</i></b></string>
+    <string name="gmit.ie">www.gmit.ie</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="add">Add</string>
+    <string name="info_text"><u>User Information</u></string>
+    <string name="blank2"> </string>
+    <string name="blank"> </string>
+    <string name="delete">Delete</string>
+    <string name="edit_tree">Edit Tree</string>
+    <string name="longi">Longitude : Not Available</string>
+    <string name="lati">Latitude   : Not Available</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_activity_camera">CameraActivity</string>
+    <string name="title_activity_decision_tree">DecisionTreeActivity</string>
+    <string name="image">DecisionTreeActivity</string>
+
+</resources>
