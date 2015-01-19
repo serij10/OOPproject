@@ -108,6 +108,25 @@ public class MainActivity extends ActionBarActivity {
 
 		});
     }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 		
 	public void deleteNode(String nodeName) {
 		Node node = root.recursiveSearch(nodeName, root);
@@ -122,7 +141,7 @@ public class MainActivity extends ActionBarActivity {
 	public void showDialogue() {
 		final Dialog dialog = new Dialog(MainActivity.this);
 		dialog.setContentView(R.layout.custom);
-		dialog.setTitle("Title...");
+		dialog.setTitle("Add Title");
 
 		Button btnAdd1 = (Button) dialog.findViewById(R.id.btnAdd1);
 
@@ -182,18 +201,18 @@ public class MainActivity extends ActionBarActivity {
 			for (final Node node1 : node.children()) {
 
 				if (node1 != null) {
-					final Button button1 = new Button(MainActivity.this);
-					button1.setText(node1.getName());
-					layout1.addView(button1);
-					button1.setOnClickListener(new View.OnClickListener() {
+					final Button btnDelete = new Button(MainActivity.this);
+					btnDelete.setText(node1.getName());
+					layout1.addView(btnDelete);
+					btnDelete.setOnClickListener(new View.OnClickListener() {
 						public void onClick(View view) {
 							if (deletePressed == true) {
 								deleteNode(node1.getName());
-								ViewGroup layout = (ViewGroup) button1
+								ViewGroup layout = (ViewGroup) btnDelete
 										.getParent();
 								if (null != layout) // for safety only as you
 													// are doing onClick
-									layout.removeView(button1);
+									layout.removeView(btnDelete);
 							} else if (node1.isLeaf() == true) {
 								layout1.removeAllViews();
 								
@@ -210,7 +229,7 @@ public class MainActivity extends ActionBarActivity {
 									imageview.setLayoutParams(imgvwDimens);
 									layout1.addView(imageview);
 									TextView t= new TextView(MainActivity.this);
-									t.setTextSize(42);
+									t.setTextSize(40);
 									t.setGravity(Gravity.CENTER);
 									t.setText(node1.getName());
 									layout1.addView(t);						
@@ -331,22 +350,5 @@ public class MainActivity extends ActionBarActivity {
 		builder.show();
 	}
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+    
 }

@@ -22,24 +22,24 @@ public class DecisionTreeActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_decision_tree);
 		
-		Node root=MyApp.helper.getRoot();		
+		Node root = MyApp.helper.getRoot();		
 		nextLevel(root);		
 	}
 	
 public void nextLevel(Node node){
 		
-		final LinearLayout layout1 = (LinearLayout) findViewById(R.id.treeLayout2);
+		final LinearLayout btnLayout = (LinearLayout) findViewById(R.id.btnLayout);
 		if(node!=null && node.children()!=null){
 			for(final Node node1:node.children()){
 				
 				if(node1!=null){
-					Button button1 = new Button(DecisionTreeActivity.this); 
-					button1.setText(node1.getName());
-					layout1.addView(button1);
-					 button1.setOnClickListener(new View.OnClickListener() {
+					Button btnAdd = new Button(DecisionTreeActivity.this); 
+					btnAdd.setText(node1.getName());
+					btnLayout.addView(btnAdd);
+					btnAdd.setOnClickListener(new View.OnClickListener() {
 	     	            public void onClick(View view) {
 	     	            	if (node1.isLeaf() == true) {
-								layout1.removeAllViews();
+	     	            		btnLayout.removeAllViews();
 
 								ImageView imageview = new ImageView(DecisionTreeActivity.this);
 								imageview.setImageBitmap(MyApp.helper.findPic(node1.getName()+".png"));
@@ -50,7 +50,7 @@ public void nextLevel(Node node){
 								LinearLayout.LayoutParams imgvwDimens = 
 								        new LinearLayout.LayoutParams(finalDimens, finalDimens);
 								imageview.setLayoutParams(imgvwDimens);
-								layout1.addView(imageview);
+								btnLayout.addView(imageview);
 								Button b1 =new Button(DecisionTreeActivity.this);
 								b1.setText("Select");
 								b1.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +59,7 @@ public void nextLevel(Node node){
 				     	            	
 				     	           }
 				     	        });
-								layout1.addView(b1);
+								btnLayout.addView(b1);
 
 								
 								
@@ -68,7 +68,7 @@ public void nextLevel(Node node){
 								;
 							} else {
 
-								layout1.removeAllViews();
+								btnLayout.removeAllViews();
 								nextLevel(node1);
 
 							}

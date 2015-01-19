@@ -10,7 +10,7 @@
     android:orientation="vertical" >
 
     <LinearLayout
-        android:id="@+id/treeLayout2"
+        android:id="@+id/btnLayout"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:orientation="vertical" >
